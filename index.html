@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>かんたん見積アプリ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>かんたん見積アプリ</h1>
+      <p class="lead">数量と単価、消費税を入力すると自動で見積金額を計算します。</p>
+
+      <form id="quote-form" class="quote-form">
+        <label>
+          件名
+          <input id="title" type="text" value="Webサイト保守" />
+        </label>
+
+        <label>
+          数量
+          <input id="quantity" type="number" min="1" value="1" required />
+        </label>
+
+        <label>
+          単価（円）
+          <input id="unitPrice" type="number" min="0" value="50000" required />
+        </label>
+
+        <label>
+          消費税率（%）
+          <input id="taxRate" type="number" min="0" step="0.1" value="10" required />
+        </label>
+
+        <button type="submit">計算する</button>
+      </form>
+
+      <section class="result" aria-live="polite">
+        <h2>計算結果</h2>
+        <dl>
+          <div>
+            <dt>件名</dt>
+            <dd id="out-title">-</dd>
+          </div>
+          <div>
+            <dt>小計</dt>
+            <dd id="out-subtotal">-</dd>
+          </div>
+          <div>
+            <dt>消費税</dt>
+            <dd id="out-tax">-</dd>
+          </div>
+          <div class="total-row">
+            <dt>合計</dt>
+            <dd id="out-total">-</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
